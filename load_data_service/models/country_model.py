@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+from load_data_service.database_postgres import Base
 
 
 class Country(Base):

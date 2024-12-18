@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+from load_data_service.database_postgres import Base
 
 
 class Region(Base):
