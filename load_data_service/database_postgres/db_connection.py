@@ -9,6 +9,7 @@ db_session = scoped_session(session_maker)
 
 
 def init_db():
+    Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
 

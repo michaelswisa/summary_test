@@ -6,7 +6,7 @@ from load_data_service.database_postgres import Base
 class City(Base):
     __tablename__ = 'cities'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, nullable=False)
+    name = Column(String)
     country_id = Column(Integer, ForeignKey('countries.id'), nullable=False)
 
     country = relationship('Country', back_populates='cities')

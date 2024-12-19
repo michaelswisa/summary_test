@@ -404,3 +404,4 @@ instance/*
 .env
 
 מבחן סיום הכשרה - קודקוד2 - DATA - לחניך - HEBREW.pdf
+load_data_service/data/globalterrorismdb_0718dist.csv
