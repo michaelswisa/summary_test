@@ -9,13 +9,8 @@ db_session = scoped_session(session_maker)
 
 
 def init_db():
-    Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
 
 def get_session():
     return db_session
-
-
-if __name__ == '__main__':
-    init_db()
