@@ -1,6 +1,9 @@
 from flask import Flask
+from analytics_service.routes.attack_type_routes import attack_type_bp
 
 app = Flask(__name__)
+
+app.register_blueprint(attack_type_bp)
 
 @app.route('/')
 def hello_world():
