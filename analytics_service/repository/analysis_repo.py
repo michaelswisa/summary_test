@@ -48,8 +48,9 @@ def get_top_groups_by_casualties(top_n=None):
     try:
         query = session.query(
             Group.name,
-            (func.sum(Event.killed) * 2 + func.sum(Event.wounded)).label('total_casualties')
-        ).join(Event).group_by(Group.name).order_by(func.sum(Event.killed) * 2 + func.sum(Event.wounded).desc())
+            (func.coalesce(func.sum(Event.killed), 0) + func.coalesce(func.sum(Event.wounded), 0)).label('total_casualties')
+        ).join(Event).group_by(Group.name).order_by(
+            (func.coalesce(func.sum(Event.killed), 0) + func.coalesce(func.sum(Event.wounded), 0)).desc())
 
         if top_n:
             query = query.limit(top_n)
@@ -57,7 +58,6 @@ def get_top_groups_by_casualties(top_n=None):
         return query.all()
     finally:
         session.close()
-
 
 # query 6
 def get_events_by_year_and_region():
@@ -99,3 +99,9 @@ def active_groups_by_region(region_name=None, limit=5):
         .all()
 
     return active_groups
+
+
+if __name__ == '__main__':
+    r = get_top_groups_by_casualties(5)
+    for i in r:
+        print(i)
