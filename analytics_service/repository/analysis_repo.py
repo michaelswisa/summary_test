@@ -76,3 +76,26 @@ def get_events_by_year_and_region():
             .all()
     finally:
         session.close()
+
+
+# query 8
+def active_groups_by_region(region_name=None, limit=5):
+    session = get_session()
+    query = session.query(
+        Group.name.label('group_name'),
+        func.count(Event.id).label('event_count')
+    ) \
+        .join(Event, Group.id == Event.group_id) \
+        .join(City, Event.city_id == City.id) \
+        .join(Country, City.country_id == Country.id) \
+        .join(Region, Country.region_id == Region.id)
+
+    if region_name:
+        query = query.filter(Region.name == region_name)
+
+    active_groups = query.group_by(Group.name) \
+        .order_by(func.count(Event.id).desc()) \
+        .limit(limit) \
+        .all()
+
+    return active_groups
