@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from load_data_service.database_postgres import Base
+from loading_additional_data_source_service.database_postgres import Base
 
 
 class TargetType(Base):

@@ -1,0 +1,7 @@
+from loading_additional_data_source_service.models.region_model import Region
+from loading_additional_data_source_service.models.country_model import Country
+from loading_additional_data_source_service.models.city_model import City
+from loading_additional_data_source_service.models.group_model import Group
+from loading_additional_data_source_service.models.attack_type_model import AttackType
+from loading_additional_data_source_service.models.target_type_model import TargetType
+from loading_additional_data_source_service.models.event_model import Event
