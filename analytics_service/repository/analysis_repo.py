@@ -277,3 +277,49 @@ def get_high_intergroup_activity_areas():
 
     finally:
         session.close()
+
+
+def get_groups_with_same_targets_by_year():
+    session = get_session()
+    try:
+        query = session.query(
+            Event.year.label('year'),
+            TargetType.name.label('target_type'),
+            Group.name.label('group_name')
+        ).select_from(Event) \
+            .join(Group, Event.group_id == Group.id) \
+            .join(TargetType, Event.target_type_id == TargetType.id) \
+            .filter(Group.name.isnot(None))
+
+        data = query.all()
+
+        organized_data = {}
+        for row in data:
+            if row.year not in organized_data:
+                organized_data[row.year] = {}
+            if row.target_type not in organized_data[row.year]:
+                organized_data[row.year][row.target_type] = set()
+
+            organized_data[row.year][row.target_type].add(row.group_name)
+
+        results = []
+        for year in organized_data:
+            year_data = {
+                "year": year,
+                "targets": []
+            }
+
+            for target_type, groups in organized_data[year].items():
+                if len(groups) > 1:
+                    year_data["targets"].append({
+                        "target_type": target_type,
+                        "groups": list(groups)
+                    })
+
+            if year_data["targets"]:
+                results.append(year_data)
+
+        return sorted(results, key=lambda x: x["year"])
+
+    finally:
+        session.close()
