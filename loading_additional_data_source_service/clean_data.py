@@ -1,5 +1,6 @@
 import pandas as pd
 from loading_additional_data_source_service.models.country_model import Country
+from loading_additional_data_source_service.models.city_model import City
 from loading_additional_data_source_service.database_postgres.db_connection import get_session
 from sqlalchemy import func
 
@@ -73,3 +74,35 @@ def clean_and_save_country(country_name, session=None):
     finally:
         if should_close_session:
             session.close()
+
+
+def clean_and_save_city(city_name, country_id, session=None):
+    should_close_session = session is None
+    if session is None:
+        session = get_session()
+    
+    try:
+        existing_city = session.query(City).filter(
+            City.name == city_name,
+            City.country_id == country_id
+        ).first()
+        
+        if existing_city:
+            return existing_city.id
+        
+        new_city = City(
+            name=city_name,
+            country_id=country_id
+        )
+        session.add(new_city)
+        session.commit()
+        session.refresh(new_city)
+        
+        return new_city.id
+        
+    finally:
+        if should_close_session:
+            session.close()
+
+
+
