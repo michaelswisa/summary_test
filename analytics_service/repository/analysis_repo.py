@@ -48,7 +48,8 @@ def get_top_groups_by_casualties(top_n=None):
     try:
         query = session.query(
             Group.name,
-            (func.coalesce(func.sum(Event.killed), 0) + func.coalesce(func.sum(Event.wounded), 0)).label('total_casualties')
+            (func.coalesce(func.sum(Event.killed), 0) + func.coalesce(func.sum(Event.wounded), 0)).label(
+                'total_casualties')
         ).join(Event).group_by(Group.name).order_by(
             (func.coalesce(func.sum(Event.killed), 0) + func.coalesce(func.sum(Event.wounded), 0)).desc())
 
@@ -58,6 +59,7 @@ def get_top_groups_by_casualties(top_n=None):
         return query.all()
     finally:
         session.close()
+
 
 # query 6
 def get_events_by_year_and_region():
@@ -81,27 +83,25 @@ def get_events_by_year_and_region():
 # query 8
 def active_groups_by_region(region_name=None, limit=5):
     session = get_session()
-    query = session.query(
-        Group.name.label('group_name'),
-        func.count(Event.id).label('event_count')
-    ) \
-        .join(Event, Group.id == Event.group_id) \
-        .join(City, Event.city_id == City.id) \
-        .join(Country, City.country_id == Country.id) \
-        .join(Region, Country.region_id == Region.id)
+    try:
+        query = session.query(
+            Group.name.label('group_name'),
+            func.count(Event.id).label('event_count')
+        ) \
+            .join(Event, Group.id == Event.group_id) \
+            .join(City, Event.city_id == City.id) \
+            .join(Country, City.country_id == Country.id) \
+            .join(Region, Country.region_id == Region.id)
 
-    if region_name:
-        query = query.filter(Region.name == region_name)
+        if region_name:
+            query = query.filter(Region.name == region_name)
 
-    active_groups = query.group_by(Group.name) \
-        .order_by(func.count(Event.id).desc()) \
-        .limit(limit) \
-        .all()
+        active_groups = query.group_by(Group.name) \
+            .order_by(func.count(Event.id).desc()) \
+            .limit(limit) \
+            .all()
 
-    return active_groups
+        return active_groups
 
-
-if __name__ == '__main__':
-    r = get_top_groups_by_casualties(5)
-    for i in r:
-        print(i)
+    finally:
+        session.close()
