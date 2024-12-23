@@ -1,5 +1,5 @@
 from analytics_service.database_postgres.db_connection import get_session
-from analytics_service.models import AttackType, Region, City, Country, Group
+from analytics_service.models import AttackType, Region, City, Country, Group, TargetType
 from analytics_service.models.event_model import Event
 from sqlalchemy import func
 
@@ -199,6 +199,43 @@ def get_shared_attack_strategies_by_region():
                 results[region] = shared_strategies
 
         return results
+
+    finally:
+        session.close()
+
+
+def get_groups_with_similar_target_preferences():
+    session = get_session()
+    try:
+        query = session.query(
+            TargetType.name.label('target_type'),
+            Group.name.label('group_name'),
+            Event.year.label('year'),
+            func.count(Event.id).label('attack_count')
+        ).select_from(Event) \
+            .join(Group, Event.group_id == Group.id) \
+            .join(TargetType, Event.target_type_id == TargetType.id) \
+            .group_by(TargetType.name, Group.name, Event.year) \
+            .having(func.count(Event.id) >= 10)
+
+        data = query.all()
+
+        target_group_mapping = {}
+        for row in data:
+            if row.target_type not in target_group_mapping:
+                target_group_mapping[row.target_type] = set()
+            target_group_mapping[row.target_type].add(row.group_name)
+
+        results = [
+            {
+                "target_type": target_type,
+                "groups": list(groups)
+            }
+            for target_type, groups in target_group_mapping.items()
+            if len(groups) > 1
+        ]
+
+        return sorted(results, key=lambda x: len(x["groups"]), reverse=True)
 
     finally:
         session.close()
