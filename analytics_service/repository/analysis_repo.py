@@ -4,7 +4,7 @@ from analytics_service.models.event_model import Event
 from sqlalchemy import func
 
 
-# query 1
+# query 1: מחזירה את סוגי ההתקפה הקטלניים ביותר לפי מספר נפגעים (הרוג = 2 נקודות, פצוע = נקודה)
 def get_top_attack_types(top_n=None):
     session = get_session()
     try:
@@ -21,7 +21,7 @@ def get_top_attack_types(top_n=None):
         session.close()
 
 
-# query 2
+# query 2: מחזירה את ממוצע הנפגעים לפי אזור גיאוגרפי
 def get_average_casualties_by_region(top_n=None):
     session = get_session()
     try:
@@ -42,7 +42,7 @@ def get_average_casualties_by_region(top_n=None):
         session.close()
 
 
-# query 3
+# query 3: מחזירה את הקבוצות עם מספר הנפגעים הגבוה ביותר
 def get_top_groups_by_casualties(top_n=None):
     session = get_session()
     try:
@@ -61,7 +61,7 @@ def get_top_groups_by_casualties(top_n=None):
         session.close()
 
 
-# query 6
+# query 6: מחזירה את מספר האירועים לפי שנה ואזור
 def get_events_by_year_and_region():
     session = get_session()
     try:
@@ -80,7 +80,7 @@ def get_events_by_year_and_region():
         session.close()
 
 
-# query 8
+# query 8: מחזירה את הקבוצות הפעילות ביותר באזור מסוים
 def active_groups_by_region(region_name=None, limit=5):
     session = get_session()
     try:
@@ -107,6 +107,7 @@ def active_groups_by_region(region_name=None, limit=5):
         session.close()
 
 
+# query 11: מזהה קבוצות שתוקפות מטרות משותפות באזור או מדינה מסוימים
 def get_shared_targets_by_groups(region_name=None, country_name=None):
     session = get_session()
     try:
@@ -159,6 +160,7 @@ def get_shared_targets_by_groups(region_name=None, country_name=None):
         session.close()
 
 
+# query 14: מזהה אזורים בהם קבוצות שונות משתמשות באותן שיטות תקיפה
 def get_shared_attack_strategies_by_region():
     session = get_session()
     try:
@@ -204,6 +206,7 @@ def get_shared_attack_strategies_by_region():
         session.close()
 
 
+# query 15: מזהה קבוצות שתוקפות את אותם סוגי מטרות
 def get_groups_with_similar_target_preferences():
     session = get_session()
     try:
@@ -241,6 +244,7 @@ def get_groups_with_similar_target_preferences():
         session.close()
 
 
+# query 16: מזהה אזורים עם פעילות של מספר רב של קבוצות שונות
 def get_high_intergroup_activity_areas():
     session = get_session()
     try:
@@ -279,6 +283,7 @@ def get_high_intergroup_activity_areas():
         session.close()
 
 
+# query 19: מזהה קבוצות שתקפו מטרות זהות באותה שנה
 def get_groups_with_same_targets_by_year():
     session = get_session()
     try:
