@@ -157,3 +157,48 @@ def get_shared_targets_by_groups(region_name=None, country_name=None):
 
     finally:
         session.close()
+
+
+def get_shared_attack_strategies_by_region():
+    session = get_session()
+    try:
+        query = session.query(
+            Region.name.label('region_name'),
+            AttackType.name.label('attack_type'),
+            Group.name.label('group_name')
+        ).select_from(Event) \
+            .join(AttackType, Event.attack_type_id == AttackType.id) \
+            .join(Group, Event.group_id == Group.id) \
+            .join(City, Event.city_id == City.id) \
+            .join(Country, City.country_id == Country.id) \
+            .join(Region, Country.region_id == Region.id)
+
+        data = query.all()
+
+        region_strategy_map = {}
+        for row in data:
+            if row.region_name not in region_strategy_map:
+                region_strategy_map[row.region_name] = {}
+
+            if row.attack_type not in region_strategy_map[row.region_name]:
+                region_strategy_map[row.region_name][row.attack_type] = set()
+
+            region_strategy_map[row.region_name][row.attack_type].add(row.group_name)
+
+        results = {}
+        for region, attack_types in region_strategy_map.items():
+            shared_strategies = []
+            for attack_type, groups in attack_types.items():
+                if len(groups) > 1:
+                    shared_strategies.append({
+                        "attack_type": attack_type,
+                        "groups": list(groups)
+                    })
+
+            if shared_strategies:
+                results[region] = shared_strategies
+
+        return results
+
+    finally:
+        session.close()
