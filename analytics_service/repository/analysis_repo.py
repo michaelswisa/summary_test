@@ -239,3 +239,41 @@ def get_groups_with_similar_target_preferences():
 
     finally:
         session.close()
+
+
+def get_high_intergroup_activity_areas():
+    session = get_session()
+    try:
+        query = session.query(
+            Country.name.label('country_name'),
+            Group.name.label('group_name'),
+            func.count(Event.id).label('event_count')
+        ).select_from(Event) \
+            .join(Group, Event.group_id == Group.id) \
+            .join(City, Event.city_id == City.id) \
+            .join(Country, City.country_id == Country.id) \
+            .group_by(Country.name, Group.name) \
+            .having(func.count(Event.id) >= 1)
+
+        data = query.all()
+
+        area_groups = {}
+        for row in data:
+            if row.country_name not in area_groups:
+                area_groups[row.country_name] = set()
+            area_groups[row.country_name].add(row.group_name)
+
+        results = [
+            {
+                "country": country,
+                "groups": list(groups),
+                "total_groups": len(groups)
+            }
+            for country, groups in area_groups.items()
+            if len(groups) > 1
+        ]
+
+        return sorted(results, key=lambda x: x["total_groups"], reverse=True)
+
+    finally:
+        session.close()
