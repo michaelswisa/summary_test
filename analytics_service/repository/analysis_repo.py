@@ -105,3 +105,36 @@ def active_groups_by_region(region_name=None, limit=5):
 
     finally:
         session.close()
+
+
+def get_shared_targets_by_groups(region_name=None, country_name=None):
+    session = get_session()
+    try:
+        query = session.query(
+            Group.name.label('group_name'),
+            func.count(Event.id).label('event_count')
+        ).select_from(Event) \
+            .join(City) \
+            .join(Country) \
+            .join(Group) \
+            .group_by(Group.name) \
+            .having(func.count(Event.id) > 1)
+
+        if region_name:
+            query = query.join(Region).filter(Region.name == region_name)
+        if country_name:
+            query = query.filter(Country.name == country_name)
+
+        data = query.all()
+        
+        return sorted([
+            {
+                "group": row.group_name,
+                "events": row.event_count
+            } for row in data
+        ], key=lambda x: x['events'], reverse=True)
+        
+    finally:
+        session.close()
+
+
