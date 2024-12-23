@@ -111,30 +111,49 @@ def get_shared_targets_by_groups(region_name=None, country_name=None):
     session = get_session()
     try:
         query = session.query(
+            Event.target_type.label('target_type'),
             Group.name.label('group_name'),
             func.count(Event.id).label('event_count')
         ).select_from(Event) \
-            .join(City) \
-            .join(Country) \
-            .join(Group) \
-            .group_by(Group.name) \
-            .having(func.count(Event.id) > 1)
+            .join(Group, Event.group_id == Group.id) \
+            .join(City, Event.city_id == City.id) \
+            .join(Country, City.country_id == Country.id)
 
         if region_name:
-            query = query.join(Region).filter(Region.name == region_name)
+            query = query.join(Region, Country.region_id == Region.id).filter(Region.name == region_name)
         if country_name:
             query = query.filter(Country.name == country_name)
 
+        query = query.group_by(Event.target_type, Group.name) \
+            .having(func.count(Event.id) >= 1)
+
         data = query.all()
-        
-        return sorted([
-            {
-                "group": row.group_name,
-                "events": row.event_count
-            } for row in data
-        ], key=lambda x: x['events'], reverse=True)
-        
+
+        targets_dict = {}
+        for row in data:
+            target_type = "Civilian Targets" if row.target_type else "Military/Government Targets"
+            if target_type not in targets_dict:
+                targets_dict[target_type] = {
+                    "target_type": target_type,
+                    "groups": []
+                }
+            targets_dict[target_type]["groups"].append({
+                "name": row.group_name,
+                "attacks": row.event_count
+            })
+
+        for target_data in targets_dict.values():
+            target_data["groups"] = sorted(
+                target_data["groups"],
+                key=lambda x: x["attacks"],
+                reverse=True
+            )
+
+        return sorted(
+            targets_dict.values(),
+            key=lambda x: len(x["groups"]),
+            reverse=True
+        )
+
     finally:
         session.close()
-
-
