@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מפת ממוצע נפגעים לפי אזור</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        height: 100vh;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .controls {
+        margin-bottom: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      select {
+        padding: 5px;
+        margin-right: 10px;
+      }
+      button {
+        padding: 5px 15px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      iframe {
+        flex-grow: 1;
+        width: 100%;
+        border: none;
+        min-height: 800px; /* גובה מינימלי */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls">
+        <h1>מפת ממוצע נפגעים לפי אזור</h1>
+        <form method="POST" action="/maps/casualties-by-region">
+          <label for="top_n">הצג:</label>
+          <select id="top_n" name="top_n">
+            <option value="">הכל</option>
+            <option value="5">Top 5</option>
+          </select>
+          <button type="submit">עדכן מפה</button>
+        </form>
+      </div>
+      <iframe src="/maps/casualties-by-region/view"></iframe>
+    </div>
+  </body>
+</html>
