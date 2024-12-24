@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f76b385685dfb1ca5248450ecd45759c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f76b385685dfb1ca5248450ecd45759c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f76b385685dfb1ca5248450ecd45759c = L.map(
+                "map_f76b385685dfb1ca5248450ecd45759c",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e5dd6ade1020bc834fa4d3925f3f31de = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e5dd6ade1020bc834fa4d3925f3f31de.addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+            var circle_b784896c10ca751bb124e4be22c1c355 = L.circle(
+                [48.379433, -100.795731],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_cf9d306aab2959f9dbb40f25a1992d82 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c4f0c5adcb35e1cf61d5db275990995 = $(`<div id="html_4c4f0c5adcb35e1cf61d5db275990995" style="width: 100.0%; height: 100.0%;">North America<br>שינוי: 4150.00%<br>שנים: 1969-1970</div>`)[0];
+                popup_cf9d306aab2959f9dbb40f25a1992d82.setContent(html_4c4f0c5adcb35e1cf61d5db275990995);
+            
+        
+
+        circle_b784896c10ca751bb124e4be22c1c355.bindPopup(popup_cf9d306aab2959f9dbb40f25a1992d82)
+        ;
+
+        
+    
+    
+            var circle_5e2cd7720fdffe517826e470360f85bf = L.circle(
+                [23.634501, -102.552784],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7500ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_2c91b20a623e7dc12c87736193bf6028 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ff4afb9e72c55c5b7ac95b4a07f5da2e = $(`<div id="html_ff4afb9e72c55c5b7ac95b4a07f5da2e" style="width: 100.0%; height: 100.0%;">Central America & Caribbean<br>שינוי: 3200.00%<br>שנים: 1993-1994</div>`)[0];
+                popup_2c91b20a623e7dc12c87736193bf6028.setContent(html_ff4afb9e72c55c5b7ac95b4a07f5da2e);
+            
+        
+
+        circle_5e2cd7720fdffe517826e470360f85bf.bindPopup(popup_2c91b20a623e7dc12c87736193bf6028)
+        ;
+
+        
+    
+    
+            var circle_3b5f67269d133b437f11dd3347d5e47b = L.circle(
+                [35.86166, 104.195397],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd700ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_b8631bf07cd3828e5c57837bd16a9fbc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9633612c8ef590448a195df8e6cd6868 = $(`<div id="html_9633612c8ef590448a195df8e6cd6868" style="width: 100.0%; height: 100.0%;">East Asia<br>שינוי: 2400.00%<br>שנים: 2006-2008</div>`)[0];
+                popup_b8631bf07cd3828e5c57837bd16a9fbc.setContent(html_9633612c8ef590448a195df8e6cd6868);
+            
+        
+
+        circle_3b5f67269d133b437f11dd3347d5e47b.bindPopup(popup_b8631bf07cd3828e5c57837bd16a9fbc)
+        ;
+
+        
+    
+    
+            var circle_39c7f060a364e826c28ed4c586942796 = L.circle(
+                [20.593684, 78.96288],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffde00ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_ea8a7446b534d04d5cdff761a906bb0e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2f6e4faaeb19a7bd50f6f0e796bc030 = $(`<div id="html_d2f6e4faaeb19a7bd50f6f0e796bc030" style="width: 100.0%; height: 100.0%;">South Asia<br>שינוי: 2350.00%<br>שנים: 1993-1994</div>`)[0];
+                popup_ea8a7446b534d04d5cdff761a906bb0e.setContent(html_d2f6e4faaeb19a7bd50f6f0e796bc030);
+            
+        
+
+        circle_39c7f060a364e826c28ed4c586942796.bindPopup(popup_ea8a7446b534d04d5cdff761a906bb0e)
+        ;
+
+        
+    
+    
+            var circle_0983875547323df1984665cae969797c = L.circle(
+                [41.377491, 64.585262],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c2e100ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_726dec9280d4b110c5f3ed6ba15f315c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b31ebf088fcdf66b1432a8f8f03da23 = $(`<div id="html_7b31ebf088fcdf66b1432a8f8f03da23" style="width: 100.0%; height: 100.0%;">Central Asia<br>שינוי: 1575.00%<br>שנים: 1993-1994</div>`)[0];
+                popup_726dec9280d4b110c5f3ed6ba15f315c.setContent(html_7b31ebf088fcdf66b1432a8f8f03da23);
+            
+        
+
+        circle_0983875547323df1984665cae969797c.bindPopup(popup_726dec9280d4b110c5f3ed6ba15f315c)
+        ;
+
+        
+    
+    
+            var circle_27932d0a5a1103677ad1c663ad777c8d = L.circle(
+                [48.379433, 9.795731],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#64b200ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_1da81324671ec3f73286d2f2067a9867 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_687c138c3650cc62249bd30b08aec1c5 = $(`<div id="html_687c138c3650cc62249bd30b08aec1c5" style="width: 100.0%; height: 100.0%;">Western Europe<br>שינוי: 810.81%<br>שנים: 1993-1994</div>`)[0];
+                popup_1da81324671ec3f73286d2f2067a9867.setContent(html_687c138c3650cc62249bd30b08aec1c5);
+            
+        
+
+        circle_27932d0a5a1103677ad1c663ad777c8d.bindPopup(popup_1da81324671ec3f73286d2f2067a9867)
+        ;
+
+        
+    
+    
+            var circle_39359aa790999c11d2872374e2caafcc = L.circle(
+                [-25.274398, 133.775136],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#62b100ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_84542eab899dd784a6568ee3286db97d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e087e5ab35091cafa2e2594212e9bb2d = $(`<div id="html_e087e5ab35091cafa2e2594212e9bb2d" style="width: 100.0%; height: 100.0%;">Australasia & Oceania<br>שינוי: 800.00%<br>שנים: 2013-2014</div>`)[0];
+                popup_84542eab899dd784a6568ee3286db97d.setContent(html_e087e5ab35091cafa2e2594212e9bb2d);
+            
+        
+
+        circle_39359aa790999c11d2872374e2caafcc.bindPopup(popup_84542eab899dd784a6568ee3286db97d)
+        ;
+
+        
+    
+    
+            var circle_091b41f4d4b2145b6e0109c1a0b1bb16 = L.circle(
+                [8.783195, 34.508523],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54aa00ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_23e4bcfb097aea237a925e1de32e33fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_971b07ccceb0a2db3eed97b5f3f9fc41 = $(`<div id="html_971b07ccceb0a2db3eed97b5f3f9fc41" style="width: 100.0%; height: 100.0%;">Sub-Saharan Africa<br>שינוי: 681.25%<br>שנים: 1993-1994</div>`)[0];
+                popup_23e4bcfb097aea237a925e1de32e33fc.setContent(html_971b07ccceb0a2db3eed97b5f3f9fc41);
+            
+        
+
+        circle_091b41f4d4b2145b6e0109c1a0b1bb16.bindPopup(popup_23e4bcfb097aea237a925e1de32e33fc)
+        ;
+
+        
+    
+    
+            var circle_a9e4a704b1c8a01e6fa1328799ea4101 = L.circle(
+                [29.31166, 47.481766],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4ca600ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_3e8a3a8771511e1ced48a53a7e8f214e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21097bf35dde877dddbc86b443f9d62c = $(`<div id="html_21097bf35dde877dddbc86b443f9d62c" style="width: 100.0%; height: 100.0%;">Middle East & North Africa<br>שינוי: 621.91%<br>שנים: 1993-1994</div>`)[0];
+                popup_3e8a3a8771511e1ced48a53a7e8f214e.setContent(html_21097bf35dde877dddbc86b443f9d62c);
+            
+        
+
+        circle_a9e4a704b1c8a01e6fa1328799ea4101.bindPopup(popup_3e8a3a8771511e1ced48a53a7e8f214e)
+        ;
+
+        
+    
+    
+            var circle_197b61ae8abffea162b819d3aa2c99d5 = L.circle(
+                [54.525961, 25.255933],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3d9f00ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_dcfd0eff7cf11d947ba06a11c30b72be = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_030d93e03d01cbf10a5232c07a81b0fc = $(`<div id="html_030d93e03d01cbf10a5232c07a81b0fc" style="width: 100.0%; height: 100.0%;">Eastern Europe<br>שינוי: 500.00%<br>שנים: 1987-1988</div>`)[0];
+                popup_dcfd0eff7cf11d947ba06a11c30b72be.setContent(html_030d93e03d01cbf10a5232c07a81b0fc);
+            
+        
+
+        circle_197b61ae8abffea162b819d3aa2c99d5.bindPopup(popup_dcfd0eff7cf11d947ba06a11c30b72be)
+        ;
+
+        
+    
+    
+            var circle_dd772ecda3fd436f489a7cb2e24d67b8 = L.circle(
+                [-8.783195, -55.491477],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#349a00ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_b7dde20ffdd238ea8b1368cdf81ca9fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1fe807f2ee7cc482439da582711d1bf = $(`<div id="html_d1fe807f2ee7cc482439da582711d1bf" style="width: 100.0%; height: 100.0%;">South America<br>שינוי: 426.14%<br>שנים: 1993-1994</div>`)[0];
+                popup_b7dde20ffdd238ea8b1368cdf81ca9fc.setContent(html_d1fe807f2ee7cc482439da582711d1bf);
+            
+        
+
+        circle_dd772ecda3fd436f489a7cb2e24d67b8.bindPopup(popup_b7dde20ffdd238ea8b1368cdf81ca9fc)
+        ;
+
+        
+    
+    
+            var circle_2d078291809f7e24c93eb491bc926849 = L.circle(
+                [4.210484, 101.975766],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#339a00ff", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 200000, "stroke": true, "weight": 3}
+            ).addTo(map_f76b385685dfb1ca5248450ecd45759c);
+        
+    
+        var popup_d08cd999cb91343435b4cbf773d6cfa1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cbbf59aa12bc6a627dca0bbc9e2cbc7 = $(`<div id="html_6cbbf59aa12bc6a627dca0bbc9e2cbc7" style="width: 100.0%; height: 100.0%;">Southeast Asia<br>שינוי: 420.00%<br>שנים: 1969-1970</div>`)[0];
+                popup_d08cd999cb91343435b4cbf773d6cfa1.setContent(html_6cbbf59aa12bc6a627dca0bbc9e2cbc7);
+            
+        
+
+        circle_2d078291809f7e24c93eb491bc926849.bindPopup(popup_d08cd999cb91343435b4cbf773d6cfa1)
+        ;
+
+        
+    
+    
+    var color_map_5abdb532584cc437dd5c1e2d1b7e07d9 = {};
+
+    
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.color = d3.scale.threshold()
+              .domain([0.0, 8.316633266533065, 16.63326653306613, 24.949899799599198, 33.26653306613226, 41.58316633266533, 49.899799599198396, 58.21643286573146, 66.53306613226452, 74.8496993987976, 83.16633266533066, 91.48296593186373, 99.79959919839679, 108.11623246492987, 116.43286573146293, 124.74949899799599, 133.06613226452905, 141.38276553106212, 149.6993987975952, 158.01603206412827, 166.3326653306613, 174.6492985971944, 182.96593186372746, 191.2825651302605, 199.59919839679358, 207.91583166332666, 216.23246492985973, 224.54909819639278, 232.86573146292585, 241.18236472945893, 249.49899799599197, 257.8156312625251, 266.1322645290581, 274.44889779559117, 282.76553106212424, 291.0821643286573, 299.3987975951904, 307.71543086172346, 316.03206412825654, 324.34869739478955, 332.6653306613226, 340.9819639278557, 349.2985971943888, 357.61523046092185, 365.9318637274549, 374.248496993988, 382.565130260521, 390.8817635270541, 399.19839679358716, 407.51503006012024, 415.8316633266533, 424.1482965931864, 432.46492985971946, 440.7815631262525, 449.09819639278555, 457.4148296593186, 465.7314629258517, 474.0480961923848, 482.36472945891785, 490.6813627254509, 498.99799599198394, 507.314629258517, 515.6312625250501, 523.9478957915832, 532.2645290581162, 540.5811623246493, 548.8977955911823, 557.2144288577155, 565.5310621242485, 573.8476953907816, 582.1643286573146, 590.4809619238476, 598.7975951903808, 607.1142284569138, 615.4308617234469, 623.7474949899799, 632.0641282565131, 640.3807615230461, 648.6973947895791, 657.0140280561122, 665.3306613226453, 673.6472945891784, 681.9639278557114, 690.2805611222445, 698.5971943887776, 706.9138276553106, 715.2304609218437, 723.5470941883767, 731.8637274549098, 740.1803607214429, 748.496993987976, 756.813627254509, 765.130260521042, 773.4468937875752, 781.7635270541082, 790.0801603206413, 798.3967935871743, 806.7134268537075, 815.0300601202405, 823.3466933867735, 831.6633266533066, 839.9799599198396, 848.2965931863728, 856.6132264529058, 864.9298597194389, 873.2464929859719, 881.563126252505, 889.8797595190381, 898.1963927855711, 906.5130260521042, 914.8296593186373, 923.1462925851704, 931.4629258517034, 939.7795591182364, 948.0961923847696, 956.4128256513026, 964.7294589178357, 973.0460921843687, 981.3627254509018, 989.6793587174349, 997.9959919839679, 1006.312625250501, 1014.629258517034, 1022.9458917835672, 1031.2625250501003, 1039.5791583166333, 1047.8957915831663, 1056.2124248496993, 1064.5290581162324, 1072.8456913827656, 1081.1623246492986, 1089.4789579158316, 1097.7955911823647, 1106.112224448898, 1114.428857715431, 1122.745490981964, 1131.062124248497, 1139.37875751503, 1147.6953907815632, 1156.0120240480962, 1164.3286573146293, 1172.6452905811623, 1180.9619238476953, 1189.2785571142285, 1197.5951903807616, 1205.9118236472946, 1214.2284569138276, 1222.5450901803608, 1230.8617234468938, 1239.1783567134269, 1247.4949899799599, 1255.811623246493, 1264.1282565130261, 1272.4448897795592, 1280.7615230460922, 1289.0781563126252, 1297.3947895791582, 1305.7114228456915, 1314.0280561122245, 1322.3446893787575, 1330.6613226452905, 1338.9779559118238, 1347.2945891783568, 1355.6112224448898, 1363.9278557114228, 1372.2444889779558, 1380.561122244489, 1388.877755511022, 1397.194388777555, 1405.5110220440881, 1413.8276553106211, 1422.1442885771544, 1430.4609218436874, 1438.7775551102204, 1447.0941883767534, 1455.4108216432867, 1463.7274549098197, 1472.0440881763527, 1480.3607214428857, 1488.6773547094188, 1496.993987975952, 1505.310621242485, 1513.627254509018, 1521.943887775551, 1530.260521042084, 1538.5771543086173, 1546.8937875751503, 1555.2104208416833, 1563.5270541082164, 1571.8436873747496, 1580.1603206412826, 1588.4769539078156, 1596.7935871743487, 1605.1102204408817, 1613.426853707415, 1621.743486973948, 1630.060120240481, 1638.376753507014, 1646.693386773547, 1655.0100200400802, 1663.3266533066133, 1671.6432865731463, 1679.9599198396793, 1688.2765531062125, 1696.5931863727455, 1704.9098196392786, 1713.2264529058116, 1721.5430861723446, 1729.8597194388778, 1738.1763527054109, 1746.4929859719439, 1754.809619238477, 1763.12625250501, 1771.4428857715432, 1779.7595190380762, 1788.0761523046092, 1796.3927855711422, 1804.7094188376755, 1813.0260521042085, 1821.3426853707415, 1829.6593186372745, 1837.9759519038075, 1846.2925851703408, 1854.6092184368738, 1862.9258517034068, 1871.2424849699398, 1879.5591182364728, 1887.875751503006, 1896.192384769539, 1904.5090180360721, 1912.8256513026051, 1921.1422845691384, 1929.4589178356714, 1937.7755511022044, 1946.0921843687374, 1954.4088176352705, 1962.7254509018037, 1971.0420841683367, 1979.3587174348697, 1987.6753507014027, 1995.9919839679358, 2004.308617234469, 2012.625250501002, 2020.941883767535, 2029.258517034068, 2037.5751503006013, 2045.8917835671343, 2054.2084168336673, 2062.5250501002006, 2070.8416833667334, 2079.1583166332666, 2087.4749498997994, 2095.7915831663327, 2104.108216432866, 2112.4248496993987, 2120.741482965932, 2129.0581162324647, 2137.374749498998, 2145.691382765531, 2154.008016032064, 2162.3246492985973, 2170.64128256513, 2178.9579158316633, 2187.2745490981965, 2195.5911823647293, 2203.9078156312626, 2212.224448897796, 2220.5410821643286, 2228.857715430862, 2237.1743486973946, 2245.490981963928, 2253.807615230461, 2262.124248496994, 2270.440881763527, 2278.75751503006, 2287.074148296593, 2295.3907815631264, 2303.7074148296592, 2312.0240480961925, 2320.3406813627253, 2328.6573146292585, 2336.9739478957918, 2345.2905811623245, 2353.607214428858, 2361.9238476953906, 2370.240480961924, 2378.557114228457, 2386.87374749499, 2395.190380761523, 2403.507014028056, 2411.823647294589, 2420.1402805611224, 2428.456913827655, 2436.7735470941884, 2445.0901803607217, 2453.4068136272545, 2461.7234468937877, 2470.0400801603205, 2478.3567134268537, 2486.673346693387, 2494.9899799599198, 2503.306613226453, 2511.623246492986, 2519.939879759519, 2528.2565130260523, 2536.573146292585, 2544.8897795591183, 2553.206412825651, 2561.5230460921844, 2569.8396793587176, 2578.1563126252504, 2586.4729458917836, 2594.7895791583164, 2603.1062124248497, 2611.422845691383, 2619.7394789579157, 2628.056112224449, 2636.3727454909817, 2644.689378757515, 2653.0060120240482, 2661.322645290581, 2669.6392785571143, 2677.9559118236475, 2686.2725450901803, 2694.5891783567135, 2702.9058116232463, 2711.2224448897796, 2719.539078156313, 2727.8557114228456, 2736.172344689379, 2744.4889779559117, 2752.805611222445, 2761.122244488978, 2769.438877755511, 2777.755511022044, 2786.072144288577, 2794.38877755511, 2802.7054108216435, 2811.0220440881762, 2819.3386773547095, 2827.6553106212423, 2835.9719438877755, 2844.2885771543088, 2852.6052104208416, 2860.921843687375, 2869.2384769539076, 2877.555110220441, 2885.871743486974, 2894.188376753507, 2902.50501002004, 2910.8216432865734, 2919.138276553106, 2927.4549098196394, 2935.771543086172, 2944.0881763527054, 2952.4048096192387, 2960.7214428857715, 2969.0380761523047, 2977.3547094188375, 2985.6713426853707, 2993.987975951904, 3002.304609218437, 3010.62124248497, 3018.937875751503, 3027.254509018036, 3035.5711422845693, 3043.887775551102, 3052.2044088176353, 3060.521042084168, 3068.8376753507014, 3077.1543086172346, 3085.4709418837674, 3093.7875751503007, 3102.1042084168334, 3110.4208416833667, 3118.7374749499, 3127.0541082164327, 3135.370741482966, 3143.687374749499, 3152.004008016032, 3160.3206412825652, 3168.637274549098, 3176.9539078156313, 3185.2705410821645, 3193.5871743486973, 3201.9038076152306, 3210.2204408817634, 3218.5370741482966, 3226.85370741483, 3235.1703406813626, 3243.486973947896, 3251.8036072144287, 3260.120240480962, 3268.436873747495, 3276.753507014028, 3285.070140280561, 3293.386773547094, 3301.703406813627, 3310.0200400801605, 3318.3366733466933, 3326.6533066132265, 3334.9699398797593, 3343.2865731462925, 3351.603206412826, 3359.9198396793586, 3368.236472945892, 3376.553106212425, 3384.869739478958, 3393.186372745491, 3401.503006012024, 3409.819639278557, 3418.1362725450904, 3426.452905811623, 3434.7695390781564, 3443.086172344689, 3451.4028056112224, 3459.7194388777557, 3468.0360721442885, 3476.3527054108217, 3484.6693386773545, 3492.9859719438878, 3501.302605210421, 3509.619238476954, 3517.935871743487, 3526.25250501002, 3534.569138276553, 3542.8857715430863, 3551.202404809619, 3559.5190380761524, 3567.835671342685, 3576.1523046092184, 3584.4689378757516, 3592.7855711422844, 3601.1022044088177, 3609.418837675351, 3617.7354709418837, 3626.052104208417, 3634.3687374749497, 3642.685370741483, 3651.0020040080162, 3659.318637274549, 3667.6352705410823, 3675.951903807615, 3684.2685370741483, 3692.5851703406815, 3700.9018036072143, 3709.2184368737476, 3717.5350701402804, 3725.8517034068136, 3734.168336673347, 3742.4849699398796, 3750.801603206413, 3759.1182364729457, 3767.434869739479, 3775.751503006012, 3784.068136272545, 3792.384769539078, 3800.701402805611, 3809.0180360721442, 3817.3346693386775, 3825.6513026052103, 3833.9679358717435, 3842.2845691382768, 3850.6012024048096, 3858.917835671343, 3867.2344689378756, 3875.551102204409, 3883.867735470942, 3892.184368737475, 3900.501002004008, 3908.817635270541, 3917.134268537074, 3925.4509018036074, 3933.76753507014, 3942.0841683366734, 3950.400801603206, 3958.7174348697395, 3967.0340681362727, 3975.3507014028055, 3983.6673346693387, 3991.9839679358715, 4000.300601202405, 4008.617234468938, 4016.933867735471, 4025.250501002004, 4033.567134268537, 4041.88376753507, 4050.2004008016033, 4058.517034068136, 4066.8336673346694, 4075.1503006012026, 4083.4669338677354, 4091.7835671342687, 4100.100200400801, 4108.416833667335, 4116.733466933868, 4125.050100200401, 4133.3667334669335, 4141.683366733467, 4150.0])
+              .range(['#008000ff', '#018100ff', '#028100ff', '#038200ff', '#048200ff', '#058300ff', '#068300ff', '#078400ff', '#088400ff', '#098500ff', '#0a8500ff', '#0b8600ff', '#0c8600ff', '#0d8700ff', '#0e8700ff', '#0f8800ff', '#108800ff', '#118900ff', '#128900ff', '#138a00ff', '#148a00ff', '#158b00ff', '#168b00ff', '#178c00ff', '#188c00ff', '#198d00ff', '#1a8d00ff', '#1b8e00ff', '#1c8e00ff', '#1d8f00ff', '#1e8f00ff', '#1f9000ff', '#209000ff', '#219100ff', '#229100ff', '#239200ff', '#249200ff', '#259300ff', '#269300ff', '#289400ff', '#299400ff', '#2a9500ff', '#2b9500ff', '#2c9600ff', '#2d9600ff', '#2e9700ff', '#2f9800ff', '#309800ff', '#319900ff', '#329900ff', '#339a00ff', '#349a00ff', '#359b00ff', '#369b00ff', '#379c00ff', '#389c00ff', '#399d00ff', '#3a9d00ff', '#3b9e00ff', '#3c9e00ff', '#3d9f00ff', '#3e9f00ff', '#3fa000ff', '#40a000ff', '#41a100ff', '#42a100ff', '#43a200ff', '#44a200ff', '#45a300ff', '#46a300ff', '#47a400ff', '#48a400ff', '#49a500ff', '#4aa500ff', '#4ba600ff', '#4ca600ff', '#4da700ff', '#4fa700ff', '#50a800ff', '#51a800ff', '#52a900ff', '#53a900ff', '#54aa00ff', '#55aa00ff', '#56ab00ff', '#57ab00ff', '#58ac00ff', '#59ac00ff', '#5aad00ff', '#5bad00ff', '#5cae00ff', '#5daf00ff', '#5eaf00ff', '#5fb000ff', '#60b000ff', '#61b100ff', '#62b100ff', '#63b200ff', '#64b200ff', '#65b300ff', '#66b300ff', '#67b400ff', '#68b400ff', '#69b500ff', '#6ab500ff', '#6bb600ff', '#6cb600ff', '#6db700ff', '#6eb700ff', '#6fb800ff', '#70b800ff', '#71b900ff', '#72b900ff', '#73ba00ff', '#74ba00ff', '#75bb00ff', '#77bb00ff', '#78bc00ff', '#79bc00ff', '#7abd00ff', '#7bbd00ff', '#7cbe00ff', '#7dbe00ff', '#7ebf00ff', '#7fbf00ff', '#80c000ff', '#81c000ff', '#82c100ff', '#83c100ff', '#84c200ff', '#85c200ff', '#86c300ff', '#87c300ff', '#88c400ff', '#89c400ff', '#8ac500ff', '#8bc500ff', '#8cc600ff', '#8dc700ff', '#8ec700ff', '#8fc800ff', '#90c800ff', '#91c900ff', '#92c900ff', '#93ca00ff', '#94ca00ff', '#95cb00ff', '#96cb00ff', '#97cc00ff', '#98cc00ff', '#99cd00ff', '#9acd00ff', '#9bce00ff', '#9cce00ff', '#9ecf00ff', '#9fcf00ff', '#a0d000ff', '#a1d000ff', '#a2d100ff', '#a3d100ff', '#a4d200ff', '#a5d200ff', '#a6d300ff', '#a7d300ff', '#a8d400ff', '#a9d400ff', '#aad500ff', '#abd500ff', '#acd600ff', '#add600ff', '#aed700ff', '#afd700ff', '#b0d800ff', '#b1d800ff', '#b2d900ff', '#b3d900ff', '#b4da00ff', '#b5da00ff', '#b6db00ff', '#b7db00ff', '#b8dc00ff', '#b9dc00ff', '#badd00ff', '#bbde00ff', '#bcde00ff', '#bddf00ff', '#bedf00ff', '#bfe000ff', '#c0e000ff', '#c1e100ff', '#c2e100ff', '#c3e200ff', '#c5e200ff', '#c6e300ff', '#c7e300ff', '#c8e400ff', '#c9e400ff', '#cae500ff', '#cbe500ff', '#cce600ff', '#cde600ff', '#cee700ff', '#cfe700ff', '#d0e800ff', '#d1e800ff', '#d2e900ff', '#d3e900ff', '#d4ea00ff', '#d5ea00ff', '#d6eb00ff', '#d7eb00ff', '#d8ec00ff', '#d9ec00ff', '#daed00ff', '#dbed00ff', '#dcee00ff', '#ddee00ff', '#deef00ff', '#dfef00ff', '#e0f000ff', '#e1f000ff', '#e2f100ff', '#e3f100ff', '#e4f200ff', '#e5f200ff', '#e6f300ff', '#e7f300ff', '#e8f400ff', '#e9f500ff', '#eaf500ff', '#ebf600ff', '#edf600ff', '#eef700ff', '#eff700ff', '#f0f800ff', '#f1f800ff', '#f2f900ff', '#f3f900ff', '#f4fa00ff', '#f5fa00ff', '#f6fb00ff', '#f7fb00ff', '#f8fc00ff', '#f9fc00ff', '#fafd00ff', '#fbfd00ff', '#fcfe00ff', '#fdfe00ff', '#feff00ff', '#ffff00ff', '#ffff00ff', '#fffe00ff', '#fffd00ff', '#fffc00ff', '#fffb00ff', '#fffa00ff', '#fff900ff', '#fff800ff', '#fff700ff', '#fff600ff', '#fff500ff', '#fff400ff', '#fff300ff', '#fff200ff', '#fff100ff', '#fff000ff', '#ffef00ff', '#ffee00ff', '#ffed00ff', '#ffeb00ff', '#ffea00ff', '#ffe900ff', '#ffe800ff', '#ffe700ff', '#ffe600ff', '#ffe500ff', '#ffe400ff', '#ffe300ff', '#ffe200ff', '#ffe100ff', '#ffe000ff', '#ffdf00ff', '#ffde00ff', '#ffdd00ff', '#ffdc00ff', '#ffdb00ff', '#ffda00ff', '#ffd900ff', '#ffd800ff', '#ffd700ff', '#ffd600ff', '#ffd500ff', '#ffd400ff', '#ffd300ff', '#ffd200ff', '#ffd100ff', '#ffd000ff', '#ffcf00ff', '#ffce00ff', '#ffcd00ff', '#ffcc00ff', '#ffcb00ff', '#ffca00ff', '#ffc900ff', '#ffc800ff', '#ffc700ff', '#ffc600ff', '#ffc500ff', '#ffc300ff', '#ffc200ff', '#ffc100ff', '#ffc000ff', '#ffbf00ff', '#ffbe00ff', '#ffbd00ff', '#ffbc00ff', '#ffbb00ff', '#ffba00ff', '#ffb900ff', '#ffb800ff', '#ffb700ff', '#ffb600ff', '#ffb500ff', '#ffb400ff', '#ffb300ff', '#ffb200ff', '#ffb100ff', '#ffb000ff', '#ffaf00ff', '#ffae00ff', '#ffad00ff', '#ffac00ff', '#ffab00ff', '#ffaa00ff', '#ffa900ff', '#ffa800ff', '#ffa700ff', '#ffa600ff', '#ffa500ff', '#ffa400ff', '#ffa300ff', '#ffa200ff', '#ffa100ff', '#ffa000ff', '#ff9f00ff', '#ff9e00ff', '#ff9c00ff', '#ff9b00ff', '#ff9a00ff', '#ff9900ff', '#ff9800ff', '#ff9700ff', '#ff9600ff', '#ff9500ff', '#ff9400ff', '#ff9300ff', '#ff9200ff', '#ff9100ff', '#ff9000ff', '#ff8f00ff', '#ff8e00ff', '#ff8d00ff', '#ff8c00ff', '#ff8b00ff', '#ff8a00ff', '#ff8900ff', '#ff8800ff', '#ff8700ff', '#ff8600ff', '#ff8500ff', '#ff8400ff', '#ff8300ff', '#ff8200ff', '#ff8100ff', '#ff8000ff', '#ff7f00ff', '#ff7e00ff', '#ff7d00ff', '#ff7c00ff', '#ff7b00ff', '#ff7a00ff', '#ff7900ff', '#ff7800ff', '#ff7700ff', '#ff7500ff', '#ff7400ff', '#ff7300ff', '#ff7200ff', '#ff7100ff', '#ff7000ff', '#ff6f00ff', '#ff6e00ff', '#ff6d00ff', '#ff6c00ff', '#ff6b00ff', '#ff6a00ff', '#ff6900ff', '#ff6800ff', '#ff6700ff', '#ff6600ff', '#ff6500ff', '#ff6400ff', '#ff6300ff', '#ff6200ff', '#ff6100ff', '#ff6000ff', '#ff5f00ff', '#ff5e00ff', '#ff5d00ff', '#ff5c00ff', '#ff5b00ff', '#ff5a00ff', '#ff5900ff', '#ff5800ff', '#ff5700ff', '#ff5600ff', '#ff5500ff', '#ff5400ff', '#ff5300ff', '#ff5200ff', '#ff5100ff', '#ff5000ff', '#ff4f00ff', '#ff4d00ff', '#ff4c00ff', '#ff4b00ff', '#ff4a00ff', '#ff4900ff', '#ff4800ff', '#ff4700ff', '#ff4600ff', '#ff4500ff', '#ff4400ff', '#ff4300ff', '#ff4200ff', '#ff4100ff', '#ff4000ff', '#ff3f00ff', '#ff3e00ff', '#ff3d00ff', '#ff3c00ff', '#ff3b00ff', '#ff3a00ff', '#ff3900ff', '#ff3800ff', '#ff3700ff', '#ff3600ff', '#ff3500ff', '#ff3400ff', '#ff3300ff', '#ff3200ff', '#ff3100ff', '#ff3000ff', '#ff2f00ff', '#ff2e00ff', '#ff2d00ff', '#ff2c00ff', '#ff2b00ff', '#ff2a00ff', '#ff2900ff', '#ff2800ff', '#ff2600ff', '#ff2500ff', '#ff2400ff', '#ff2300ff', '#ff2200ff', '#ff2100ff', '#ff2000ff', '#ff1f00ff', '#ff1e00ff', '#ff1d00ff', '#ff1c00ff', '#ff1b00ff', '#ff1a00ff', '#ff1900ff', '#ff1800ff', '#ff1700ff', '#ff1600ff', '#ff1500ff', '#ff1400ff', '#ff1300ff', '#ff1200ff', '#ff1100ff', '#ff1000ff', '#ff0f00ff', '#ff0e00ff', '#ff0d00ff', '#ff0c00ff', '#ff0b00ff', '#ff0a00ff', '#ff0900ff', '#ff0800ff', '#ff0700ff', '#ff0600ff', '#ff0500ff', '#ff0400ff', '#ff0300ff', '#ff0200ff', '#ff0100ff', '#ff0000ff']);
+    
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x = d3.scale.linear()
+              .domain([0.0, 4150.0])
+              .range([0, 450 - 50]);
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.legend = L.control({position: 'topright'});
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.legend.addTo(map_f76b385685dfb1ca5248450ecd45759c);
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.xAxis = d3.svg.axis()
+        .scale(color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([0.0, 2075.0, 4150.0]);
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.g = color_map_5abdb532584cc437dd5c1e2d1b7e07d9.svg.append("g")
+        .attr("class", "key")
+        .attr("fill", "black")
+        .attr("transform", "translate(25,16)");
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.g.selectAll("rect")
+        .data(color_map_5abdb532584cc437dd5c1e2d1b7e07d9.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x(color_map_5abdb532584cc437dd5c1e2d1b7e07d9.color.domain()[i - 1]) : color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x.range()[0],
+            x1: i < color_map_5abdb532584cc437dd5c1e2d1b7e07d9.color.domain().length ? color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x(color_map_5abdb532584cc437dd5c1e2d1b7e07d9.color.domain()[i]) : color_map_5abdb532584cc437dd5c1e2d1b7e07d9.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_5abdb532584cc437dd5c1e2d1b7e07d9.g.call(color_map_5abdb532584cc437dd5c1e2d1b7e07d9.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .attr("fill", "black")
+        .text("");
+</script>
+</html>
