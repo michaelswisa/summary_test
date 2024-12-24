@@ -130,6 +130,9 @@ def clean_and_save_event(row, city_id, attack_type_id, target_type_id, group_id,
     if pd.isna(row['nwound']) or row['nwound'] < 0:
         row['nwound'] = None
 
+    if pd.isna(row['nperps']) or row['nperps'] < 0:
+        row['nperps'] = None
+
     event = Event(
         year=int(row['iyear']) if pd.notna(row['iyear']) else None,
         month=int(row['imonth']) if pd.notna(row['imonth']) else None,
