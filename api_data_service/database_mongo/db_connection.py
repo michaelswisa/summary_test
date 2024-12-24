@@ -3,6 +3,7 @@ from pymongo.errors import ConnectionFailure
 import json
 from api_data_service.config import MONGO_HOST, MONGO_PORT, MONGO_USERNAME, MONGO_PASSWORD, MONGO_DB_NAME
 
+
 class MongoDBConnection:
     def __init__(self):
         try:

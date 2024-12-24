@@ -1,4 +1,4 @@
-PATH_DATA_CSV_LOAD=r'data\RAND_Database_of_Worldwide_Terrorism_Incidents.csv'
+PATH_DATA_CSV_LOAD = r'data\RAND_Database_of_Worldwide_Terrorism_Incidents.csv'
 
 POSTGRES_HOST = 'localhost'
 POSTGRES_PORT = '5433'

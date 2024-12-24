@@ -21,10 +21,9 @@ def get_region_coordinates():
     }
 
 def get_region_casualties_map(top_n=None):
-    # קבלת הנתונים
     results = get_average_casualties_by_region(top_n)
     results_dict = {result.name: result.average_score for result in results}
-    
+
     # ייפוי מדינות לאזורים
     country_to_region = {
         # Western Europe
@@ -34,7 +33,7 @@ def get_region_casualties_map(top_n=None):
         'CH': 'Western Europe', 'AT': 'Western Europe', 'IE': 'Western Europe',
         'IS': 'Western Europe', 'NO': 'Western Europe', 'SE': 'Western Europe',
         'FI': 'Western Europe', 'DK': 'Western Europe',
-        
+
         # Eastern Europe
         'RU': 'Eastern Europe', 'UA': 'Eastern Europe', 'PL': 'Eastern Europe',
         'RO': 'Eastern Europe', 'CZ': 'Eastern Europe', 'HU': 'Eastern Europe',
@@ -42,7 +41,7 @@ def get_region_casualties_map(top_n=None):
         'BG': 'Eastern Europe', 'HR': 'Eastern Europe', 'RS': 'Eastern Europe',
         'BA': 'Eastern Europe', 'AL': 'Eastern Europe', 'MK': 'Eastern Europe',
         'EE': 'Eastern Europe', 'LV': 'Eastern Europe', 'LT': 'Eastern Europe',
-        
+
         # North America
         'US': 'North America', 'CA': 'North America',
         

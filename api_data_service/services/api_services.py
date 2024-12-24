@@ -1,12 +1,13 @@
 import json
 import requests
 from api_data_service.config import (
-    EVENT_REGISTRY_URL, 
-    GROQ_API_KEY, 
-    GROQ_API_URL, 
+    EVENT_REGISTRY_URL,
+    GROQ_API_KEY,
+    GROQ_API_URL,
     OPENCAGE_API_KEY,
     RESPONSE_FORMAT_GROQ
 )
+
 
 def fetch_articles(page):
     response = requests.get(f"{EVENT_REGISTRY_URL}{page}")
@@ -16,6 +17,7 @@ def fetch_articles(page):
         print(f"Error fetching articles: {response.status_code}")
         return []
 
+
 def classify_news_article(article_content):
     headers = {
         "Content-Type": "application/json",
@@ -23,7 +25,8 @@ def classify_news_article(article_content):
     }
     payload = {
         "messages": [
-            {"role": "system", "content": "You are an assistant classifying news articles into categories and locations"},
+            {"role": "system",
+             "content": "You are an assistant classifying news articles into categories and locations"},
             {"role": "user", "content": f"This is a news article: {article_content}"}
         ],
         "model": "grok-2-1212",
@@ -31,7 +34,7 @@ def classify_news_article(article_content):
         "temperature": 0,
         "response_format": RESPONSE_FORMAT_GROQ
     }
-    
+
     response = requests.post(GROQ_API_URL, headers=headers, json=payload)
     if response.status_code == 200:
         try:
@@ -42,6 +45,7 @@ def classify_news_article(article_content):
     else:
         print(f"Request failed with status code {response.status_code}: {response.text}")
         return None
+
 
 def get_location(name):
     url = f"https://api.opencagedata.com/geocode/v1/json?q={name}&key={OPENCAGE_API_KEY}"
@@ -57,4 +61,4 @@ def get_location(name):
             return {"lon": 0.0, "lat": 0.0}
     else:
         print(f"Error fetching geolocation data: {response.status_code}")
-        return {"lon": 0.0, "lat": 0.0} 
+        return {"lon": 0.0, "lat": 0.0}

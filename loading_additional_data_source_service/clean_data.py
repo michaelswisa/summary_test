@@ -54,30 +54,30 @@ def clean_and_save_country(country_name, session=None):
     should_close_session = session is None
     if session is None:
         session = get_session()
-    
+
     try:
         session.rollback()
-        
+
         existing_country = session.query(Country).filter(Country.name == country_name).first()
         if existing_country:
             return existing_country.id
-        
+
         max_id = get_max_country_id()
         new_id = max_id + 1
-        
+
         new_country = Country(
             id=new_id,
             name=country_name
         )
         session.add(new_country)
         session.commit()
-        
+
         return new_id
-        
+
     except Exception as e:
         session.rollback()
         raise e
-        
+
     finally:
         if should_close_session:
             session.close()
@@ -87,18 +87,18 @@ def clean_and_save_city(city_name, country_id, session=None):
     should_close_session = session is None
     if session is None:
         session = get_session()
-    
+
     try:
         session.rollback()
-        
+
         existing_city = session.query(City).filter(
             City.name == city_name,
             City.country_id == country_id
         ).first()
-        
+
         if existing_city:
             return existing_city.id
-        
+
         new_city = City(
             name=city_name,
             country_id=country_id
@@ -106,13 +106,13 @@ def clean_and_save_city(city_name, country_id, session=None):
         session.add(new_city)
         session.commit()
         session.refresh(new_city)
-        
+
         return new_city.id
-        
+
     except Exception as e:
         session.rollback()
         raise e
-        
+
     finally:
         if should_close_session:
             session.close()
@@ -122,24 +122,24 @@ def clean_and_save_group(perpetrator_name, session=None):
     should_close_session = session is None
     if session is None:
         session = get_session()
-    
+
     try:
         if not perpetrator_name or perpetrator_name == "Unknown":
             return None
-            
+
         existing_group = session.query(Group).filter(Group.name == perpetrator_name).first()
         if existing_group:
             return existing_group.id
-        
+
         new_group = Group(
             name=perpetrator_name
         )
         session.add(new_group)
         session.commit()
         session.refresh(new_group)
-        
+
         return new_group.id
-        
+
     finally:
         if should_close_session:
             session.close()
@@ -158,24 +158,24 @@ def clean_and_save_attack_type(weapon_name, session=None):
     should_close_session = session is None
     if session is None:
         session = get_session()
-    
+
     try:
         existing_attack_type = session.query(AttackType).filter(AttackType.name == weapon_name).first()
         if existing_attack_type:
             return existing_attack_type.id
-            
+
         max_id = get_max_attack_type_id()
         new_id = max_id + 1
-        
+
         new_attack_type = AttackType(
             id=new_id,
             name=weapon_name
         )
         session.add(new_attack_type)
         session.commit()
-        
+
         return new_id
-        
+
     finally:
         if should_close_session:
             session.close()
@@ -185,10 +185,10 @@ def clean_and_save_event(row, city_id, group_id, attack_type_id, session=None):
     should_close_session = session is None
     if session is None:
         session = get_session()
-    
+
     try:
         date_parts = parse_date(row['Date'])
-        
+
         new_event = Event(
             summary=row['Description'],
             killed=row['Fatalities'] if pd.notna(row['Fatalities']) else None,
@@ -200,13 +200,13 @@ def clean_and_save_event(row, city_id, group_id, attack_type_id, session=None):
             month=date_parts['month'],
             day=date_parts['day']
         )
-        
+
         session.add(new_event)
         session.commit()
         session.refresh(new_event)
-        
+
         return new_event.id
-        
+
     finally:
         if should_close_session:
             session.close()

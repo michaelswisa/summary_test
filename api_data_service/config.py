@@ -39,4 +39,4 @@ RESPONSE_FORMAT_GROQ = {
         },
         "strict": True
     }
-} 
+}

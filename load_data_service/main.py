@@ -2,6 +2,7 @@ from load_data_service.clean_data import *
 from load_data_service.database_postgres.db_connection import get_session, init_db
 from config import PATH_DATA_CSV_LOAD
 
+
 def main():
     session = get_session()
     init_db()

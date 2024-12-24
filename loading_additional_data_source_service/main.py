@@ -10,7 +10,7 @@ from loading_additional_data_source_service.config import PATH_DATA_CSV_LOAD
 def main():
     session = get_session()
     df = load_data(PATH_DATA_CSV_LOAD)
-    
+
     for _, row in df.iterrows():
         try:
             row = convert_nan_to_none(row)
@@ -18,7 +18,7 @@ def main():
             city_id = clean_and_save_city(row['City'], country_id, session)
             group_id = clean_and_save_group(row['Perpetrator'], session)
             attack_type_id = clean_and_save_attack_type(row['Weapon'], session)
-            
+
             clean_and_save_event(
                 row=row,
                 city_id=city_id,
@@ -26,13 +26,13 @@ def main():
                 attack_type_id=attack_type_id,
                 session=session
             )
-            
+
         except Exception as e:
             print(f"Error processing row: {e}")
             continue
-    
+
     session.close()
 
 
 if __name__ == "__main__":
-    main() 
+    main()
