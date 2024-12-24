@@ -10,12 +10,32 @@ from api_data_service.config import (
 
 
 def fetch_articles(page):
-    response = requests.get(f"{EVENT_REGISTRY_URL}{page}")
-    if response.status_code == 200:
-        return response.json().get('articles')
-    else:
-        print(f"Error fetching articles: {response.status_code}")
-        return []
+    try:
+        response = requests.get(f"{EVENT_REGISTRY_URL}{page}")
+        print(f"API Response status: {response.status_code}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            print(f"API Response data: {json.dumps(data, indent=2)[:200]}...")  # Debug print
+            
+            # בבנה ה-JSON הוא nested - articles.results
+            if "articles" in data and "results" in data["articles"]:
+                return data["articles"]["results"]
+            else:
+                print(f"Unexpected API response structure. Keys found: {list(data.keys())}")
+                return None
+        else:
+            print(f"Error fetching articles: {response.status_code}")
+            print(f"Response content: {response.text}")
+            return None
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Failed to parse JSON response: {e}")
+        print(f"Response content: {response.text}")
+        return None
 
 
 def classify_news_article(article_content):
