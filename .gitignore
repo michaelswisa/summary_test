@@ -404,5 +404,9 @@ instance/*
 .env
 
 מבחן סיום הכשרה - קודקוד2 - DATA - לחניך - HEBREW.pdf
+tree.py
+load_data_service/clean_data.ipynb
 load_data_service/data/globalterrorismdb_0718dist.csv
-loading_additional_data_source_service\data\RAND_Database_of_Worldwide_Terrorism_Incidents - 5000rows.csv
+loading_additional_data_source_service/clean_data.ipynb
+loading_additional_data_source_service/data/RAND_Database_of_Worldwide_Terrorism_Incidents - 5000 rows.csv
+loading_additional_data_source_service/data/RAND_Database_of_Worldwide_Terrorism_Incidents.csv
